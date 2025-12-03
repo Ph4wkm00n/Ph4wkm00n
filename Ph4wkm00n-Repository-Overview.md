@@ -1,6 +1,6 @@
 # Ph4wkm00n Repository Overview
 
-A comprehensive overview of 142 projects from the Ph4wkm00n GitHub account, highlighting functionality and features extracted from CLAUDE.md files.
+A comprehensive overview of 140 projects from the Ph4wkm00n GitHub account, highlighting functionality and features extracted from CLAUDE.md files.
 
 ---
 
@@ -606,11 +606,6 @@ A conversational, non-destructive photo editor where users describe edits in nat
 
 ---
 
-### LuxeLight-Studio-System
-An AI-powered professional portrait and fashion photography generator. Features 11 professional lighting presets with studio-grade techniques, transform photos or text descriptions into professional portraits, tier-gated access to lighting concepts, detailed technical "light recipes" for each style, and multiple export formats with quality controls.
-
----
-
 ### UGC-Ads-Generator
 An AI-powered platform for creating user-generated content style video ads at scale. Features automated workflow from product image analysis through script generation, AI video creation, post-processing, and social media publishing. Supports multi-platform output, batch campaign generation, OCR-based product analysis, and voice-enabled video generation.
 
@@ -662,11 +657,6 @@ An AI study platform that automatically generates quizzes and flashcards from up
 
 ### Ultimate-Maths-Tutor
 An AI-powered mathematics education platform spanning K-12 through undergraduate with personalized tutoring. Features AI tutor with Socratic dialogue (text and voice), OCR-based homework capture, gamification with XP/badges/leaderboards/avatars, skill tree with visual progress, Lean 4 proof verification studio, theorem explorer with knowledge graphs, and research collaboration tools.
-
----
-
-### pancake-index-builder
-An application designed to help exam candidates create comprehensive study indices from textbooks and PDFs for open-book exams. Features dual file input, LLM-based extraction of definitions/context/operational summaries, index-guided extraction, formatted Excel/CSV output optimized for exam use, edit retention system that preserves manual changes, and comparison UI.
 
 ---
 
@@ -777,9 +767,9 @@ Singapore's first civilian-accessible digital twin integrating satellite imagery
 - **Security/Cybersecurity Tools**: 15
 - **Healthcare/Wellness**: 8
 - **Productivity/Business Tools**: 13
-- **Content Creation/Media**: 11
+- **Content Creation/Media**: 10
 - **Education/Learning**: 6
-- **Gaming/Entertainment**: 6
+- **Gaming/Entertainment**: 5
 - **Communication/Collaboration**: 3
 - **Developer Tools/Utilities**: 8
 
