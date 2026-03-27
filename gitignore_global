@@ -1,0 +1,129 @@
+# ~/.gitignore_global — Ph4wkm00n
+# Excludes files that should NEVER appear in any repo.
+# Register with: git config --global core.excludesfile ~/.gitignore_global
+
+# ── Secrets & credentials ─────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+id_rsa
+id_ed25519
+id_ecdsa
+*.asc
+secrets.*
+credentials.*
+auth.json
+config.json           # often contains tokens — add explicitly per-project if safe
+
+# ── OS artefacts ──────────────────────────────────────────────────────────────
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ── Editor / IDE ──────────────────────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+Session.vim
+.netrwhist
+tags
+.nvim/
+
+# ── Language / runtime ────────────────────────────────────────────────────────
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / JS
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.next/
+.nuxt/
+dist/
+
+# Rust
+target/
+
+# Go
+vendor/
+
+# ── Security tooling artefacts ────────────────────────────────────────────────
+# Don't accidentally commit scan results or payloads
+*.nmap
+*.gnmap
+*.xml.bak
+*.pcap
+*.pcapng
+loot/
+payloads/
+shells/
+implants/
+*.beacon
+*.cs                  # Cobalt Strike artefacts — comment out for C# projects
+*.cna
+malleable_c2/
+
+# Metasploit
+.msf4/
+
+# ── Lab / research output ─────────────────────────────────────────────────────
+*.bin
+*.raw
+*.dump
+*.dmp
+*.img
+samples/
+malware/
+reversing/output/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+*.orig
+*.rej
+.cache/
+tmp/
+temp/

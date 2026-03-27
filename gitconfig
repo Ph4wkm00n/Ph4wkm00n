@@ -1,0 +1,154 @@
+# ~/.gitconfig — Ph4wkm00n global Git configuration
+# Place this file at: $HOME/.gitconfig
+
+[user]
+	name  = Ph4wkm00n
+	email = ph4wkm00n@proton.me        # swap to your actual address
+	signingkey = ""                     # add your GPG key ID here
+
+[core]
+	editor      = nvim                  # or vim / nano / code
+	autocrlf    = input                 # LF on commit, leave alone on checkout
+	whitespace  = trailing-space,space-before-tab
+	pager       = delta                 # github.com/dandavison/delta (pretty diffs)
+	excludesfile = ~/.gitignore_global
+
+[commit]
+	gpgsign = false                     # flip to true once signingkey is set
+	verbose = true                      # show diff in commit message editor
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true                       # rebase instead of merge on pull
+
+[push]
+	default       = current
+	autoSetupRemote = true              # auto-set upstream on first push
+
+[fetch]
+	prune = true                        # auto-remove stale remote tracking branches
+
+[merge]
+	ff            = false               # always create a merge commit
+	conflictstyle = zdiff3              # cleaner conflict markers (git ≥ 2.35)
+
+[rebase]
+	autoStash     = true                # stash/unstash dirty working tree automatically
+	autoSquash    = true                # honour fixup!/squash! commit prefixes
+
+[diff]
+	algorithm     = histogram           # smarter diff algorithm
+	colorMoved    = default             # highlight moved lines differently
+
+[log]
+	date          = format:%Y-%m-%d %H:%M
+	decorate      = full
+
+[status]
+	showUntrackedFiles = all
+	submoduleSummary   = true
+
+[color]
+	ui     = auto
+	branch = auto
+	diff   = auto
+	status = auto
+
+[color "branch"]
+	current = yellow bold
+	local   = green
+	remote  = cyan
+
+[color "diff"]
+	meta    = yellow bold
+	frag    = magenta bold
+	old     = red bold
+	new     = green bold
+
+[color "status"]
+	added     = green bold
+	changed   = yellow bold
+	untracked = red bold
+
+# ── Interactive rebase helpers ────────────────────────────────────────────────
+[sequence]
+	editor = interactive-rebase-tool   # github.com/MitMaro/git-interactive-rebase-tool
+
+# ── Aliases ───────────────────────────────────────────────────────────────────
+[alias]
+	# Status & log
+	s      = status -sb
+	l      = log --oneline --graph --decorate --all
+	ll     = log --graph --pretty=format:'%C(yellow)%h%Creset %C(cyan)%an%Creset %C(white)%s%Creset %C(green)(%ar)%Creset%C(red)%d%Creset' --abbrev-commit --all
+	last   = log -1 HEAD --stat
+	today  = log --since=midnight --oneline
+
+	# Staging
+	a      = add -p                     # interactive patch stage
+	aa     = add --all
+
+	# Commit shortcuts
+	c      = commit
+	cm     = commit -m
+	ca     = commit --amend --no-edit
+	wip    = commit -am "wip: checkpoint [skip ci]"
+
+	# Branch
+	b      = branch -vv
+	co     = checkout
+	cob    = checkout -b
+	gone   = "!git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D"
+
+	# Stash
+	pop    = stash pop
+	snap   = stash push -m
+
+	# Remote
+	fp     = fetch --prune
+	ph     = push --force-with-lease    # safe force push
+
+	# Diff
+	d      = diff
+	ds     = diff --staged
+	dt     = difftool
+
+	# Undo
+	unstage = restore --staged
+	undo    = reset HEAD~1 --soft       # undo last commit, keep changes staged
+
+	# Utilities
+	ignore  = "!gi() { curl -sL https://www.gitignore.io/api/$@ ; }; gi"
+	aliases = config --get-regexp alias
+	whoami  = config user.email
+	root    = rev-parse --show-toplevel
+
+	# Security / forensics — useful for red team repos
+	search  = log --all -S             # search commit history for a string
+	authors = shortlog -sne --all
+
+# ── URL rewrites (use SSH everywhere) ─────────────────────────────────────────
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+# ── Credential helpers ────────────────────────────────────────────────────────
+# Uncomment the one matching your OS:
+# macOS
+# [credential]
+#   helper = osxkeychain
+
+# Linux (libsecret)
+# [credential]
+#   helper = /usr/lib/git-core/git-credential-libsecret
+
+# ── Delta (pager) settings ────────────────────────────────────────────────────
+[delta]
+	navigate         = true            # n/N to jump between diff sections
+	side-by-side     = false
+	line-numbers     = true
+	syntax-theme     = gruvbox-dark
+	plus-style       = "syntax #003800"
+	minus-style      = "syntax #3f0001"
+	file-style       = "bold yellow ul"
+	hunk-header-style = "file line-number syntax"
